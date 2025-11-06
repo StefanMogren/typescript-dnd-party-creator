@@ -1,2 +1,5 @@
-# typescript-dnd-minigame
-A school task to create a simple TypeScript web page. I decided to make use of the D&D 5th Edition API: https://www.dnd5eapi.co/api/2014/
+# typescript-dnd-party-creator
+A school task to create a simple TypeScript web page. My idea is to create a D&D party of up to 6 people.
+
+D&D 5th Edition API:
+https://www.dnd5eapi.co/api/2014/
