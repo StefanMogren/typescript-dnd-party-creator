@@ -1,5 +1,8 @@
 import type { DndClassShort, DndClassLong } from "../interfaces/index.ts";
-// import type { DndClassShort, DndClassLong } from "./interfaces/index.ts";
+
+// D&D 5th Edition API
+// https://www.dnd5eapi.co/api/2014/
+// At the end of the link, add classes/, features/, monsters/, spells/?name=Acid+Arrow
 
 const fetchDndClasses = async (): Promise<DndClassShort[] | []> => {
 	console.log("Fetch function is running!");
