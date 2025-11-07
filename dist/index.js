@@ -1,3 +1,5 @@
-"use strict";
-console.log("I am logged!");
-console.log("And so am Issssssss!");
+import { fetchFullDndClassInfo } from "./api/index.js";
+fetchFullDndClassInfo();
+// D&D 5th Edition API
+// https://www.dnd5eapi.co/api/2014/
+// classes/, features/, monsters/, spells/?name=Acid+Arrow
