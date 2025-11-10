@@ -1,0 +1,61 @@
+export const createPartyPage = (): string => {
+	return `
+    <section class="party-page">
+      <h1 class="party-page__title">Create your party of adventurers</h1>
+
+      <section class="party-page__flex-container">
+        <form class="party-page__chooser" action="post" id="classFormId">
+          <h2 class="party-page__sub-title">
+            Choose the class for your new member
+          </h2>
+          <section class="party-page__all-classes" id="allClassesId">
+          </section>
+          <button type="submit" class="party-page__class-btn">Select class</button>
+        </form>
+
+        <!-- ----- Current Party ----- -->
+        <article class="party-page__current-party">
+          <h2>Current party</h2>
+          <section class="party-page__party-container" id="currentPartyId">
+          </section>
+        </article>
+      </section>
+    </section>`;
+};
+
+export const createClassContainer = (className: string): string => {
+	return `
+    <section class="party-page__class-container">
+    <label class="party-page__class-label" for="${className}">
+      <input
+        class="party-page__class-radio"
+        type="radio"
+        name="classChoice"
+        value="${className}"
+        id="${className}" />
+      <img
+        class="party-page__class-img"
+        src="./assets/${className}.jpg"
+        alt="${className} image" />
+      ${className}
+    </label>
+    </section>`;
+};
+export const createPartyContainer = (
+	className: string,
+	characterName: string
+): string => {
+	return `
+    <section class="party-page__party-class">
+      <img
+        class="party-page__class-img"
+        src="./assets/${className}.jpg"
+        alt="${className} image" />
+      <p>${characterName}</p>
+      <p>${className}</p>
+    </section>`;
+};
+
+export const createClassInfo = (className: string): string => {
+	return "Yes";
+};

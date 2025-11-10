@@ -22,158 +22,39 @@
 				<nav class="header__nav">
 					<ul class="header__nav-ul">
 						<li class="header__nav-li">
-							<a class="header__nav-link" href="">Home</a>
+							<button class="header__nav-btn">Home</button>
+							<!-- <a class="header__nav-link" href="">Home</a> -->
 						</li>
 						<li class="header__nav-li">
-							<a class="header__nav-link" href="">Game</a>
+							<button class="header__nav-btn">Game</button>
+							<!-- <a class="header__nav-link" href="">Game</a> -->
 						</li>
 						<li class="header__nav-li">
-							<a class="header__nav-link" href="">Party Manager</a>
+							<button class="header__nav-btn" id="partyPageId">
+								Party Manager
+							</button>
+							<!-- <a class="header__nav-link" href="Party Manager"></a> -->
 						</li>
 						<li class="header__nav-li">
-							<a class="header__nav-link" href="">About</a>
+							<button class="header__nav-btn">About</button>
+							<!-- <a class="header__nav-link" href="">About</a> -->
 						</li>
 						<li class="header__nav-li">
-							<a class="header__nav-link" href="">Contact</a>
+							<button class="header__nav-btn">Contact</button>
+							<!-- <a class="header__nav-link" href="">Contact</a> -->
 						</li>
 					</ul>
 				</nav>
 			</section>
 		</header>
-		<main>
-			<section class="party-page">
-				<h1 class="party-page__title">Create your party of adventurers</h1>
-
-				<section class="party-page__flex-container">
-					<section class="party-page__chooser">
-						<h2 class="party-page__sub-title">
-							Choose the class for your new member
-						</h2>
-						<section class="party-page__all-classes">
-							<!-- ----- Barbarian ----- -->
-							<section class="party-page__class-container">
-								<label class="party-page__class-label" for="barbarian">
-									<input
-										class="party-page__class-radio"
-										type="radio"
-										name="classChoice"
-										id="barbarian" />
-									<img
-										class="party-page__class-img"
-										src="./assets/Barbarian.jpg"
-										alt="barbarian image" />
-									Barbarian
-								</label>
-							</section>
-
-							<!-- ----- Bard ----- -->
-							<section class="party-page__class-container">
-								<label class="party-page__class-label" for="bard">
-									<input
-										class="party-page__class-radio"
-										type="radio"
-										name="classChoice"
-										id="bard" />
-									<img
-										class="party-page__class-img"
-										src="./assets/bard.jpg"
-										alt="bard image" />
-									Bard
-								</label>
-							</section>
-
-							<!-- ----- cleric ----- -->
-							<section class="party-page__class-container">
-								<label class="party-page__class-label" for="cleric">
-									<input
-										class="party-page__class-radio"
-										type="radio"
-										name="classChoice"
-										id="cleric" />
-									<img
-										class="party-page__class-img"
-										src="./assets/cleric.jpg"
-										alt="cleric image" />
-									cleric
-								</label>
-							</section>
-
-							<!-- ----- druid ----- -->
-							<section class="party-page__class-container">
-								<label class="party-page__class-label" for="druid">
-									<input
-										class="party-page__class-radio"
-										type="radio"
-										name="classChoice"
-										id="druid" />
-									<img
-										class="party-page__class-img"
-										src="./assets/druid.jpg"
-										alt="druid image" />
-									druid
-								</label>
-							</section>
-
-							<!-- ----- fighter ----- -->
-							<section class="party-page__class-container">
-								<label class="party-page__class-label" for="fighter">
-									<input
-										class="party-page__class-radio"
-										type="radio"
-										name="classChoice"
-										id="fighter" />
-									<img
-										class="party-page__class-img"
-										src="./assets/fighter.jpg"
-										alt="fighter image" />
-									fighter
-								</label>
-							</section>
-
-							<!-- ----- monk ----- -->
-							<section class="party-page__class-container">
-								<label class="party-page__class-label" for="monk">
-									<input
-										class="party-page__class-radio"
-										type="radio"
-										name="classChoice"
-										id="monk" />
-									<img
-										class="party-page__class-img"
-										src="./assets/monk.jpg"
-										alt="monk image" />
-									monk
-								</label>
-							</section>
-						</section>
-						<button>Select class</button>
-					</section>
-
-					<!-- ----- Current Party ----- -->
-					<article class="party-page__party">
-						<h2>Current party</h2>
-						<section class="party-page__party-container" id="currentPartyId">
-							<section class="party-page__party-class">
-								<img
-									class="party-page__class-img"
-									src="./assets/Barbarian.jpg"
-									alt="barbarian image" />
-								<p>Barra</p>
-								<p>Barbarian</p>
-							</section>
-						</section>
-						<section class="party-page__party-container" id="currentPartyId">
-							<section class="party-page__party-class">
-								<img
-									class="party-page__class-img"
-									src="./assets/fighter.jpg"
-									alt="fighter image" />
-								<p>Vlad the Impaler</p>
-								<p>fighter</p>
-							</section>
-						</section>
-					</article>
-				</section>
+		<!-- All content is added into the main -->
+		<main id="mainId">
+			<section>
+				<h1>Welcome to the D&D AI Dungeon Master game!</h1>
+				<p>
+					Please start by entering the Party Manager and create your adventuring
+					party
+				</p>
 			</section>
 		</main>
 	</body>
