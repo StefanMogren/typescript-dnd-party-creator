@@ -47,14 +47,45 @@
 				</nav>
 			</section>
 		</header>
-		<!-- All content is added into the main -->
 		<main id="mainId">
-			<section>
-				<h1>Welcome to the D&D AI Dungeon Master game!</h1>
-				<p>
-					Please start by entering the Party Manager and create your adventuring
-					party
-				</p>
+			<section class="party-page">
+				<h1 class="party-page__title">Create your party of adventurers</h1>
+
+				<section class="party-page__flex-container">
+					<form class="party-page__chooser" action="post" id="classFormId">
+						<h2 class="party-page__sub-title">Stats of the class Barbarian</h2>
+						<section
+							class="party-page__all-classes"
+							id="allClassesId"></section>
+						<button class="party-page__class-btn" type="submit">
+							Select class
+						</button>
+					</form>
+
+					<!-- ----- Current Party ----- -->
+					<article class="party-page__current-party">
+						<h2>Current party</h2>
+						<section class="party-page__party-container" id="currentPartyId">
+							<section class="party-page__party-class">
+								<img
+									class="party-page__class-img"
+									src="./assets/Barbarian.jpg"
+									alt="barbarian image" />
+								<p>Barra</p>
+								<p>Barbarian</p>
+							</section>
+
+							<section class="party-page__party-class">
+								<img
+									class="party-page__class-img"
+									src="./assets/fighter.jpg"
+									alt="fighter image" />
+								<p>Vlad the Impaler of the New World</p>
+								<p>fighter</p>
+							</section>
+						</section>
+					</article>
+				</section>
 			</section>
 		</main>
 	</body>

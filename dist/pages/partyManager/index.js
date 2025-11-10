@@ -10,7 +10,7 @@ export const createPartyPage = () => {
           </h2>
           <section class="party-page__all-classes" id="allClassesId">
           </section>
-          <button type="submit" class="party-page__class-btn">Select class</button>
+          <button class="party-page__class-btn" type="submit">Select class</button>
         </form>
 
         <!-- ----- Current Party ----- -->

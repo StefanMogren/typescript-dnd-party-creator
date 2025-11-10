@@ -1,4 +1,4 @@
-import { fetchFullDndClassInfo } from "./api/index.js";
+import { fetchDndClasses } from "./api/index.js";
 import { createPartyPage, createClassContainer, } from "./pages/partyManager/index.js";
 console.log("I am logged!!");
 const partyPageBtnRef = document.querySelector("#partyPageId");
@@ -6,7 +6,8 @@ const mainRef = document.querySelector("#mainId");
 partyPageBtnRef.addEventListener("click", async () => {
     console.log("I clicked the button!");
     mainRef.innerHTML = createPartyPage();
-    const dndClassesData = await fetchFullDndClassInfo();
+    // const dndClassesData = await fetchFullDndClassInfo();
+    const dndClassesData = await fetchDndClasses();
     console.log(dndClassesData);
     if (dndClassesData) {
         const classesContainerRef = document.querySelector("#allClassesId");
@@ -23,5 +24,6 @@ partyPageBtnRef.addEventListener("click", async () => {
         const formJson = Object.fromEntries(formData.entries());
         console.log(formJson);
     };
+    //sss
     classFormRef.addEventListener("submit", onSubmitHandler);
 });

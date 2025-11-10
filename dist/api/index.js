@@ -1,7 +1,7 @@
 // D&D 5th Edition API
 // https://www.dnd5eapi.co/api/2014/
 // At the end of the link, add classes/, features/, monsters/, spells/?name=Acid+Arrow
-const fetchDndClasses = async () => {
+export const fetchDndClasses = async () => {
     console.log("Fetch function is running!");
     try {
         const response = await fetch("https://www.dnd5eapi.co/api/2014/classes/");
