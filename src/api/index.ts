@@ -25,8 +25,33 @@ export const fetchDndClasses = async (): Promise<DndClassShort[] | []> => {
 		return [];
 	}
 };
+export const fetchFullDndClassInfo = async (
+	className: string
+): Promise<DndClassLong | null> => {
+	console.log("Fetch function is running!");
 
-export const fetchFullDndClassInfo = async (): Promise<
+	/* 	interface DndClassesData {
+		results: DndClassLong;
+	} */
+	try {
+		const response: Response = await fetch(
+			`https://www.dnd5eapi.co/api/2014/classes/${className}`
+		);
+		if (response.ok) {
+			const data: DndClassLong = await response.json();
+			console.log(data);
+
+			return data;
+		} else {
+			throw new Error("Failed to fetch classes.");
+		}
+	} catch (error) {
+		console.log(error);
+		return null;
+	}
+};
+
+/* export const fetchFullDndClassInfo = async (): Promise<
 	DndClassLong[] | null
 > => {
 	const dndClasses: DndClassShort[] | [] = await fetchDndClasses();
@@ -47,4 +72,4 @@ export const fetchFullDndClassInfo = async (): Promise<
 	} else {
 		return null;
 	}
-};
+}; */

@@ -54,3 +54,6 @@ export const createPartyContainer = (className, characterName) => {
 export const createClassInfo = (className) => {
     return "Yes";
 };
+export const createClassDataForm = (classData) => {
+    return "text";
+};

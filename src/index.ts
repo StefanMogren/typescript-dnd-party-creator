@@ -1,8 +1,9 @@
 import type { DndClassShort, DndClassLong } from "./interfaces/index.js";
-import { fetchDndClasses } from "./api/index.js";
+import { fetchDndClasses, fetchFullDndClassInfo } from "./api/index.js";
 import {
 	createPartyPage,
 	createClassContainer,
+	createClassDataForm,
 } from "./pages/partyManager/index.js";
 console.log("I am logged!!");
 
@@ -16,10 +17,11 @@ partyPageBtnRef.addEventListener("click", async (): Promise<void> => {
 	console.log("I clicked the button!");
 	mainRef.innerHTML = createPartyPage();
 
-	// const dndClassesData = await fetchFullDndClassInfo();
+	// ----- Hämtar listan med kortfattad klassinformation -----
 	const dndClassesData = await fetchDndClasses();
 	console.log(dndClassesData);
 
+	// ----- Skapar en ruta för varje klass -----
 	if (dndClassesData) {
 		const classesContainerRef = document.querySelector(
 			"#allClassesId"
@@ -29,7 +31,7 @@ partyPageBtnRef.addEventListener("click", async (): Promise<void> => {
 		});
 	}
 
-	// ----- Submit -----
+	// ----- Submit för vilken klass man valt -----
 	const classFormRef = document.querySelector(
 		"#classFormId"
 	) as HTMLFormElement;
@@ -43,9 +45,18 @@ partyPageBtnRef.addEventListener("click", async (): Promise<void> => {
 		const formJson = Object.fromEntries(formData.entries()) as FormFields;
 		console.log(formJson);
 		type FormFields = {
-			todo: string;
+			classChoice: string;
 		};
 	};
 	//sss
 	classFormRef.addEventListener("submit", onSubmitHandler);
 });
+
+const showClassInfo = async (className: string): Promise<void> => {
+	const fullClassData = await fetchFullDndClassInfo(className);
+	if (fullClassData) {
+		mainRef.innerHTML = createClassDataForm(fullClassData);
+	}
+};
+
+showClassInfo("barbarian");

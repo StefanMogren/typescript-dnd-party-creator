@@ -18,16 +18,46 @@ export const fetchDndClasses = async () => {
         return [];
     }
 };
-export const fetchFullDndClassInfo = async () => {
-    const dndClasses = await fetchDndClasses();
-    console.log(dndClasses);
-    if (dndClasses.length > 0) {
-        const responses = await Promise.all(dndClasses.map((dndClass) => fetch(`https://www.dnd5eapi.co${dndClass.url}`)));
-        const data = await Promise.all(responses.map((res) => res.json()));
-        console.log(data);
-        return data;
+export const fetchFullDndClassInfo = async (className) => {
+    console.log("Fetch function is running!");
+    /* 	interface DndClassesData {
+        results: DndClassLong;
+    } */
+    try {
+        const response = await fetch(`https://www.dnd5eapi.co/api/2014/classes/${className}`);
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            return data;
+        }
+        else {
+            throw new Error("Failed to fetch classes.");
+        }
     }
-    else {
+    catch (error) {
+        console.log(error);
         return null;
     }
 };
+/* export const fetchFullDndClassInfo = async (): Promise<
+    DndClassLong[] | null
+> => {
+    const dndClasses: DndClassShort[] | [] = await fetchDndClasses();
+    console.log(dndClasses);
+
+    if (dndClasses.length > 0) {
+        const responses: Response[] = await Promise.all(
+            dndClasses.map((dndClass) =>
+                fetch(`https://www.dnd5eapi.co${dndClass.url}`)
+            )
+        );
+
+        const data: DndClassLong[] = await Promise.all(
+            responses.map((res) => res.json())
+        );
+        console.log(data);
+        return data;
+    } else {
+        return null;
+    }
+}; */

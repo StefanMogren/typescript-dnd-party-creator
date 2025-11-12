@@ -1,3 +1,5 @@
+import type { DndClassLong } from "../../interfaces";
+
 export const createPartyPage = (): string => {
 	return `
     <section class="party-page">
@@ -58,4 +60,8 @@ export const createPartyContainer = (
 
 export const createClassInfo = (className: string): string => {
 	return "Yes";
+};
+
+export const createClassDataForm = (classData: DndClassLong): string => {
+	return "text";
 };
