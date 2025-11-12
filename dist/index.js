@@ -1,4 +1,4 @@
-import { fetchDndClasses, fetchFullDndClassInfo } from "./api/index.js";
+import { fetchDndClasses } from "./api/index.js";
 import { createPartyPage, createClassContainer, createPartyContainer, } from "./pages/partyManager/index.js";
 import { getLocalStorage, updateLocalStorage } from "./localStorage/index.js";
 console.log("I am logged!!");
@@ -26,8 +26,8 @@ partyPageBtnRef.addEventListener("click", async () => {
             classesContainerRef.innerHTML += createClassContainer(classData.name);
         });
     }
-    // ----- Submit för vilken klass man valt -----
     const classFormRef = document.querySelector("#classFormId");
+    // ----- Submit for when you add a new member to the party -----
     const onSubmitHandler = (event) => {
         event.preventDefault();
         const form = event.currentTarget;
@@ -39,11 +39,14 @@ partyPageBtnRef.addEventListener("click", async () => {
             console.log(updatedParty);
             const currentPartyRef = document.querySelector("#currentPartyId");
             currentPartyRef.innerHTML = "";
+            // ----- Add the party members to the list  -----
             updatedParty.forEach((member) => {
                 const { className, characterName } = member;
                 currentPartyRef.innerHTML += createPartyContainer(className, characterName);
             });
         }
+        form.reset();
+        // console.log(form.isConnected);
     };
     classFormRef.addEventListener("submit", onSubmitHandler);
 });

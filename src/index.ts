@@ -1,5 +1,5 @@
-import type { DndClassShort, DndClassLong } from "./interfaces/index.js";
-import { fetchDndClasses, fetchFullDndClassInfo } from "./api/index.js";
+import type { DndClassShort } from "./interfaces/index.js";
+import { fetchDndClasses } from "./api/index.js";
 import {
 	createPartyPage,
 	createClassContainer,
@@ -49,11 +49,11 @@ partyPageBtnRef.addEventListener("click", async (): Promise<void> => {
 		});
 	}
 
-	// ----- Submit för vilken klass man valt -----
 	const classFormRef = document.querySelector(
 		"#classFormId"
 	) as HTMLFormElement;
 
+	// ----- Submit for when you add a new member to the party -----
 	const onSubmitHandler = (event: SubmitEvent): void => {
 		event.preventDefault();
 
@@ -70,7 +70,10 @@ partyPageBtnRef.addEventListener("click", async (): Promise<void> => {
 			const currentPartyRef = document.querySelector(
 				"#currentPartyId"
 			) as HTMLElement;
+
 			currentPartyRef.innerHTML = "";
+
+			// ----- Add the party members to the list  -----
 			updatedParty.forEach((member) => {
 				const { className, characterName } = member;
 				currentPartyRef.innerHTML += createPartyContainer(
@@ -79,6 +82,8 @@ partyPageBtnRef.addEventListener("click", async (): Promise<void> => {
 				);
 			});
 		}
+		form.reset();
+		// console.log(form.isConnected);
 	};
 	classFormRef.addEventListener("submit", onSubmitHandler);
 });

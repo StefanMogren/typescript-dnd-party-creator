@@ -1,6 +1,7 @@
 import type { CurrentParty } from "../interfaces";
 export const getLocalStorage = (): CurrentParty[] | null => {
 	const fromLocalStorage: string | null = localStorage.getItem("currentParty");
+
 	if (fromLocalStorage) {
 		const currentParty: CurrentParty[] = JSON.parse(fromLocalStorage);
 		return currentParty;

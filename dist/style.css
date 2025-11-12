@@ -70,11 +70,33 @@
 	color: white;
 }
 
+/* ----- Home Page ----- */
+.home-page {
+	max-width: 1100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+
+	color: white;
+}
+
+.home-page__introduction {
+	padding: 2rem;
+}
+
+.home-page__text-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
 /* ----- Party Page ----- */
 
 .party-page {
 	max-width: 1100px;
 	margin: auto;
+	padding: 2rem;
 }
 .party-page__title {
 	color: white;

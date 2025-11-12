@@ -1,3 +1,10 @@
+// The only two interfaces/types actually used are CurrentParty and DndClassShort.
+// Was intending to use the rest as well but realized I wouldn't have enough time to fully implement all features.
+export type CurrentParty = {
+	className: string;
+	characterName: string;
+};
+
 export interface DndClassShort {
 	name: string;
 	url: string;
@@ -65,8 +72,3 @@ interface StartingEquipmentItemMultiple {
 	option_type: string;
 	items: StartingEquipmentItem[];
 }
-
-export type CurrentParty = {
-	className: string;
-	characterName: string;
-};
