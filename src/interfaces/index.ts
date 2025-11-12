@@ -8,7 +8,7 @@ interface NameUrl {
 }
 export interface DndClassLong {
 	name: string;
-	hit_dice: number;
+	hit_die: number;
 	proficiency_choices: ProficiencyChoices[];
 	proficiencies: NameUrl[];
 	saving_throws: NameUrl[];
@@ -53,13 +53,20 @@ interface StartingEquipmentItem {
 }
 interface StartingEquipmentItemAny {
 	option_type: string;
-	desc: string;
-	choose: number;
-	from: {
-		equipment_category: NameUrl;
+	choice: {
+		desc: string;
+		choose: number;
+		from: {
+			equipment_category: NameUrl;
+		};
 	};
 }
 interface StartingEquipmentItemMultiple {
 	option_type: string;
 	items: StartingEquipmentItem[];
 }
+
+export type CurrentParty = {
+	className: string;
+	characterName: string;
+};

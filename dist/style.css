@@ -132,6 +132,13 @@
 	/* width: 100px; */
 }
 
+.party-page__flex-column {
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
 .party-page__class-btn {
 	width: 150px;
 	padding: 0.5rem;

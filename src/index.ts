@@ -3,8 +3,10 @@ import { fetchDndClasses, fetchFullDndClassInfo } from "./api/index.js";
 import {
 	createPartyPage,
 	createClassContainer,
-	createClassDataForm,
+	createPartyContainer,
 } from "./pages/partyManager/index.js";
+import { getLocalStorage, updateLocalStorage } from "./localStorage/index.js";
+import type { CurrentParty } from "./interfaces/index.js";
 console.log("I am logged!!");
 
 const partyPageBtnRef = document.querySelector(
@@ -16,6 +18,22 @@ const mainRef = document.querySelector("#mainId") as HTMLElement;
 partyPageBtnRef.addEventListener("click", async (): Promise<void> => {
 	console.log("I clicked the button!");
 	mainRef.innerHTML = createPartyPage();
+
+	const partyLocalStorage: CurrentParty[] | null = getLocalStorage();
+	if (partyLocalStorage) {
+		const currentPartyRef = document.querySelector(
+			"#currentPartyId"
+		) as HTMLElement;
+		partyLocalStorage.forEach((member: CurrentParty) => {
+			const { className, characterName } = member;
+			console.log(member);
+
+			currentPartyRef.innerHTML += createPartyContainer(
+				className,
+				characterName
+			);
+		});
+	}
 
 	// ----- Hämtar listan med kortfattad klassinformation -----
 	const dndClassesData = await fetchDndClasses();
@@ -42,21 +60,25 @@ partyPageBtnRef.addEventListener("click", async (): Promise<void> => {
 		const form = event.currentTarget as HTMLFormElement;
 		const formData: FormData = new FormData(form);
 
-		const formJson = Object.fromEntries(formData.entries()) as FormFields;
+		const formJson = Object.fromEntries(formData.entries()) as CurrentParty;
 		console.log(formJson);
-		type FormFields = {
-			classChoice: string;
-		};
+
+		const updatedParty: CurrentParty[] | null = updateLocalStorage(formJson);
+		if (updatedParty) {
+			console.log(updatedParty);
+
+			const currentPartyRef = document.querySelector(
+				"#currentPartyId"
+			) as HTMLElement;
+			currentPartyRef.innerHTML = "";
+			updatedParty.forEach((member) => {
+				const { className, characterName } = member;
+				currentPartyRef.innerHTML += createPartyContainer(
+					className,
+					characterName
+				);
+			});
+		}
 	};
-	//sss
 	classFormRef.addEventListener("submit", onSubmitHandler);
 });
-
-const showClassInfo = async (className: string): Promise<void> => {
-	const fullClassData = await fetchFullDndClassInfo(className);
-	if (fullClassData) {
-		mainRef.innerHTML = createClassDataForm(fullClassData);
-	}
-};
-
-showClassInfo("barbarian");

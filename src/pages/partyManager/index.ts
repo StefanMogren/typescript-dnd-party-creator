@@ -12,7 +12,16 @@ export const createPartyPage = (): string => {
           </h2>
           <section class="party-page__all-classes" id="allClassesId">
           </section>
-          <button class="party-page__class-btn" type="submit">Select class</button>
+
+          <label class="party-page__flex-column" for="characterNameId">
+            Name for the character:
+            <input
+              class="party-page__class-char-name"
+              type="text"
+              name="characterName"
+              id="characterNameId" />
+						</label>
+          <button class="party-page__class-btn" type="submit">Add to party</button>
         </form>
 
         <!-- ----- Current Party ----- -->
@@ -32,7 +41,7 @@ export const createClassContainer = (className: string): string => {
       <input
         class="party-page__class-radio"
         type="radio"
-        name="classChoice"
+        name="className"
         value="${className}"
         id="${className}" />
       <img
@@ -56,12 +65,4 @@ export const createPartyContainer = (
       <p>${characterName}</p>
       <p>${className}</p>
     </section>`;
-};
-
-export const createClassInfo = (className: string): string => {
-	return "Yes";
-};
-
-export const createClassDataForm = (classData: DndClassLong): string => {
-	return "text";
 };
